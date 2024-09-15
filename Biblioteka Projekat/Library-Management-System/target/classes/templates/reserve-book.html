@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserve Book</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/users">Manage Users</a></li>
+        <li><a href="/books">Available Books</a></li>
+        <li><a href="/categories">Category of Books</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <h1>Loaned Books</h1> <!-- Naslov tabele sa pozajmljenim knjigama -->
+
+    <!-- Tabela za prikaz svih pozajmica -->
+    <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Loan Date</th>
+            <th>Return Date</th>
+            <th>Book Title</th>
+            <th>User</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="loan : ${loans}">
+            <td th:text="${loan.id}"></td>
+            <td th:text="${loan.loanDate}"></td>
+            <td th:text="${loan.returnDate}"></td>
+            <td th:text="${loan.book.title}"></td>
+            <td th:text="${loan.user.name}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <button onclick="window.location.href='/books/new-reservation'">Rezerviši</button>  <!-- Preusmerava na novu rutu za unos rezervacije -->
+
+
+</div>
+
+</body>
+</html>

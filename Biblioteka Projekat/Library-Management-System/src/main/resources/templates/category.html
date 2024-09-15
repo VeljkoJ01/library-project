@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Categories</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/users">Manage Users</a></li>
+        <li><a href="/books">Available Books</a></li>
+        <li><a href="/categories">Category of Books</a></li>
+        <li><a href="/add-book-publisher">Add Book/Publisher</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <h1>Categories of Books</h1>
+
+    <!-- Tabela za prikaz kategorija -->
+    <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="category : ${categories}">
+            <td th:text="${category.id}"></td>
+            <td th:text="${category.name}"></td>
+            <td>
+                <!-- Dugme za izmenu kategorije -->
+                <a th:href="@{/categories/edit/{id}(id=${category.id})}" class="btn">Edit</a>
+
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
